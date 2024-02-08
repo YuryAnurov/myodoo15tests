@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    важный атрибут чтобы код не затирал изменения в пользовательском интерфейсе-->
+    <data noupdate="1">
+        <record id="sequence_hospital_table" model="ir.sequence">
+            <field name="name">Patient Sequence</field>
+            <field name="code">hospital.patient</field>
+            <field name="prefix">HP</field>
+            <field name="padding">5</field>
+        </record>
+        <record id="sequence_hospital_doctor_table" model="ir.sequence">
+            <field name="name">Doctor Sequence</field>
+            <field name="code">hospital.doctor</field>
+            <field name="prefix">ID</field>
+            <field name="padding">3</field>
+        </record>
+    </data>
+</odoo>

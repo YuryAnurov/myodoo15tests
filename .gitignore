@@ -1,0 +1,13 @@
+.vscode/
+.idea/
+license-application/
+My/
+odoo/
+env/
+shop/
+**/__pycache__/
+setup.cfg
+odoo.conf
+
+
+
