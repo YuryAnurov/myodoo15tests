@@ -21,7 +21,7 @@
 
 
     <menuitem id="menu_female_patient"
-              name="Female Patient"
+              name="Female Patients"
               parent="menu_hospital_operations"
               action="action_hospital_female_patient"
               sequence="20"/>

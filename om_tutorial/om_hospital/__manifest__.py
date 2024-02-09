@@ -11,6 +11,7 @@
         'views/om_hospital_menus.xml',
         'views/patient_views.xml',
         'views/female_patient_views.xml',
+        'views/appointment_views.xml',
         'views/doctor_views.xml',
     ]
 }

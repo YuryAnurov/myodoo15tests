@@ -24,8 +24,9 @@ Commits content
     - Archive Option And Web Ribbon In Odoo (attrs="{'invisible': [('active', '=', True)]},
     ribbon colors - bg_color="bg-danger")
     - Many2many Field In Odoo (tags)
-
+----
     step1_5 - Default Filter And Group By, web_icon(web_responsive), domain For Menu Action, Default Value Using Context
+    52f6725ad009854b786c1f785a10ece58f244321
     now odoo15, new git, for steps 1-4 see odoo16 git
     - web_icon="om_hospital,static/description/icon.png" - в меню айтем
     - <field name="context">{'search_default_filter_male': 1, 'search_default_group_by_gender': 1}</field>
@@ -35,5 +36,17 @@ Commits content
     - <field name="context">{'default_gender': 'female'}</field>
         при открытии формы (create) из меню Female в gender по умолчанию стоит female
 
+    step6 - Add Search Panel, Add another Many2one Field, Add Date And Datetime Fields, Set Default Values
+    - <searchpanel> <field name="gender" enable_counters="1"/> icon="fa-users" icon="fa-filter" select="multi"
+    - new model appointment with many2one
+    - date and datetime, + db settings date and time in youtube
+https://www.youtube.com/watch?v=ykUB7Y5g6Sc&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=24
+
+    - default date and time, default value for gender versus context
+    appointment_time = fields.Datetime(string="Appointment Time", default=fields.Datetime.now)
+    booking_date = fields.Date(string="Booking Date", default=fields.Date.context_today)
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('others', 'Others')],
+                              string="Gender", tracking=True, default='female')
+https://www.youtube.com/watch?v=TaRRpYnbdLI&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=25
 
 

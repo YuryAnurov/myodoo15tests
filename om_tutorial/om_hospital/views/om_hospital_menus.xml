@@ -14,4 +14,9 @@
                 name="Master Data"
                 parent="menu_hospital_root"
                 sequence="10"/>
+
+        <menuitem id="menu_appointments_master"
+                name="Appointments"
+                parent="menu_hospital_root"
+                sequence="20"/>
 </odoo>

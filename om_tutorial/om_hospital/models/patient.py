@@ -12,7 +12,7 @@ class HospitalPatient(models.Model):
     is_child = fields.Boolean(string="Is Child?", tracking=True)
     notes = fields.Text(string="Notes")
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('others', 'Others')],
-                              string="Gender", tracking=True)
+                              string="Gender", tracking=True, default='female')
     capitalized_name = fields.Char(string='Capitalized Name', compute='_compute_capitalized_name', store=True)
     ref = fields.Char(string="Reference", default=lambda self: _('New'))
     doctor_id = fields.Many2one('hospital.doctor', string='Doctor')
