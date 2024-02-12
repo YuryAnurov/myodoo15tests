@@ -1,4 +1,5 @@
 from odoo import api, fields, models, _
+from datetime import date
 from odoo.exceptions import ValidationError
 
 
@@ -8,7 +9,8 @@ class HospitalPatient(models.Model):
     _description = "Patient Records"
 
     name = fields.Char(string='Name', required=True, tracking=True)
-    age = fields.Integer(string="Age", tracking=True)
+    date_of_birth = fields.Date(string="Date of Birth")
+    age = fields.Integer(string="Age", compute='_compute_age', tracking=True)
     is_child = fields.Boolean(string="Is Child?", tracking=True)
     notes = fields.Text(string="Notes")
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('others', 'Others')],
@@ -18,6 +20,16 @@ class HospitalPatient(models.Model):
     doctor_id = fields.Many2one('hospital.doctor', string='Doctor')
     tag_ids = fields.Many2many('res.partner.category', 'hospital_patient_tag_rel',
                                'patient_id', 'tag_id', string="Tags")
+
+    @api.depends('date_of_birth')
+    def _compute_age(self):
+        today = date.today()
+        for rec in self:
+            if rec.date_of_birth:
+                rec.age = today.year - rec.date_of_birth.year - (
+                        (today.month, today.day) < (rec.date_of_birth.month, rec.date_of_birth.day))
+            else:
+                rec.age = 0
 
     @api.model_create_multi
     def create(self, vals_list):

@@ -37,6 +37,7 @@ Commits content
         при открытии формы (create) из меню Female в gender по умолчанию стоит female
 
     step6 - Add Search Panel, Add another Many2one Field, Add Date And Datetime Fields, Set Default Values
+    1f07e34d5714db8fe7e00938cc3de848cb75c5d0
     - <searchpanel> <field name="gender" enable_counters="1"/> icon="fa-users" icon="fa-filter" select="multi"
     - new model appointment with many2one
     - date and datetime, + db settings date and time in youtube
@@ -48,5 +49,31 @@ https://www.youtube.com/watch?v=ykUB7Y5g6Sc&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('others', 'Others')],
                               string="Gender", tracking=True, default='female')
 https://www.youtube.com/watch?v=TaRRpYnbdLI&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=25
+
+    step7 - Related Fields,  Computed Fields, Onchange Functions. RecName(as in step4)
+    - related - gender = fields.Selection(related='patient_id.gender'), адресуем через many2one поле, все атрибуты
+    удаляем, все берется из related, по умолчанию не редактируемое, но если сделать редактируемым - меняет родителя
+    - сomputed
+https://www.youtube.com/watch?v=NlbdnA6WMd8&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=26
+
+          - не можем использовать не хранимое вычисляемое поле в search view. else обязателен - иначе будет ошибка
+            быстро смотрим в базе:
+            sudo su postgres - logged into postgres?, psql, \c dev_db (имя бд), select * from hospital_patient;
+            если поле не хранимое - в базе его нет (оно есть, т.к. ранее было не хранимое, если удалить модуль и 
+            поставить заново - поля age нет, поэтому его и в sarch view использовать нельзя - вычисляется налету
+          - чтобы значение age вычислялось сразу же, а не при нажатии save - нужно добавить декоратор 
+            @api.depends('date_of_birth') - без него метод запускался только при записи, а с ним - при любом изменении 
+            поля
+    - onchange
+            ref = fields.Char(string="Reference")
+
+            @api.onchange('patient_id')
+            def onchange_patient_id(self):
+                self.ref = self.patient_id.ref
+    - rec name - по умолчанию поле name, если такого поля в модели нет, выбранная запись будет отражаться в хлебных 
+    крошках как (модель, id). Можно задать, например так: _rec_name = 'patient_id' и тогда и в этой модели и в других 
+    через many2one поле - запись будет отражаться по указанному имени. 
+        
+        
 
 

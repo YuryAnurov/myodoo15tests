@@ -15,7 +15,10 @@
                     <group>
                         <field name="name"/>
                         <field name="is_child"/>
+                        <field name="date_of_birth"/>
                         <field name="age"/>
+                    </group>
+                    <group>
                         <field name="gender"/>
                         <field name="doctor_id"  options="{'no_open': True, 'no_create': True}"/>
                         <field name="capitalized_name"/>
