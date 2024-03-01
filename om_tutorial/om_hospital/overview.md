@@ -51,6 +51,7 @@ https://www.youtube.com/watch?v=ykUB7Y5g6Sc&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
 https://www.youtube.com/watch?v=TaRRpYnbdLI&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=25
 
     step7 - Related Fields,  Computed Fields, Onchange Functions. RecName(as in step4)
+    62a89382be191a75117604d93900ef74e19fc8c2
     - related - gender = fields.Selection(related='patient_id.gender'), адресуем через many2one поле, все атрибуты
     удаляем, все берется из related, по умолчанию не редактируемое, но если сделать редактируемым - меняет родителя
     - сomputed
@@ -73,7 +74,24 @@ https://www.youtube.com/watch?v=NlbdnA6WMd8&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
     - rec name - по умолчанию поле name, если такого поля в модели нет, выбранная запись будет отражаться в хлебных 
     крошках как (модель, id). Можно задать, например так: _rec_name = 'patient_id' и тогда и в этой модели и в других 
     через many2one поле - запись будет отражаться по указанному имени. 
-        
+
+    step8 -  Notebook And Pages, HTML Field, Remove Create/Edit/Delete/Duplicate Options, Priority Widget (Stars)
+https://www.youtube.com/watch?v=yNuGJYykeSA&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=30
+https://www.youtube.com/watch?v=co7891dHjH4&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=30
+https://www.youtube.com/watch?v=eqWd2zHSRio&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=32
+    
+    - notebook and pages - group is mandatory
+    - html field
+        prescription = fields.Html(string='Prescription')
+        <field name="prescription" placeholder="Enter your prescription"/>
+    - Remove Create, Edit, Delete and Duplicate Options From Views In Odoo
+            <form create="0" delete="0" edit="0">
+            <tree create="0" delete="0">
+    - Priority Widget (stars)
+            priority = fields.Selection([
+                ('0', 'Normal'), ('1', 'Low'), ('2', 'High'), ('3', 'Very High')], string="Priority")
+            <field name="priority" widget="priority" class="mr-r"/>
+            <h1></h1> - добавит размер
         
 
 
