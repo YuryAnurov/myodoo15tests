@@ -76,6 +76,7 @@ https://www.youtube.com/watch?v=NlbdnA6WMd8&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
     через many2one поле - запись будет отражаться по указанному имени. 
 
     step8 -  Notebook And Pages, HTML Field, Remove Create/Edit/Delete/Duplicate Options, Priority Widget (Stars)
+    ee97e117d645d5fd39b57ef58766032ea4c394f9 
 https://www.youtube.com/watch?v=yNuGJYykeSA&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=30
 https://www.youtube.com/watch?v=co7891dHjH4&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=30
 https://www.youtube.com/watch?v=eqWd2zHSRio&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=32
@@ -92,6 +93,40 @@ https://www.youtube.com/watch?v=eqWd2zHSRio&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
                 ('0', 'Normal'), ('1', 'Low'), ('2', 'High'), ('3', 'Very High')], string="Priority")
             <field name="priority" widget="priority" class="mr-r"/>
             <h1></h1> - добавит размер
-        
+
+    step 9 - Statusbar, Buttons, Confirmation message on button click, help message for fields/buttons
+https://www.youtube.com/watch?v=Z7nux4M3rrc&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=33
+https://www.youtube.com/watch?v=gxF5zpUjLxo&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=34
+https://www.youtube.com/watch?v=5ykMlMcUPis&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=35
+https://www.youtube.com/watch?v=GRwwboUuzHs&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=36
+
+    - Statusbar 
+        в модели  
+            state = fields.Selection([('draft', 'Draft'), ('in_consultation', 'In Consultation'),
+                        ('done', 'Done'), ('cancel', 'Cancelled')], default='draft', string="Status", required=True)
+                    default и required - чтобы не было пустых статусо 
+        в представлении
+                <header>
+                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"
+                                                        statusbar_visible="draft,in_consultation,done"/>
+                </header>
+                    statusbar_visible="draft,in_consultation,done" - скрыает статус, если он не выбран для записи
+    - Buttons - 2х типов:
+        типа object - ищет питон метод в модели, без class="oe_highlight" - будет белая кнопка с черной надписью
+        <button name="action_test" string="Test Button" type="object" class="oe_highlight"/>
+        типа action - запускает action по id (любой модели) - ссылается на action из patient_views
+            <button name="%(om_hospital.action_hospital_patient)d" string="Action Button"
+                    type="action" class="oe_highlight"/>
+    - Confirmation
+        <button name (на любую позицию )
+         confirm="Are you sure to open the patient action ?" - перед выплнением будет окно с вопросом
+    - help messages
+        для поля 
+            в питоне ref = fields.Char(string="Reference", help="Reference of the patient from patient record")
+            в представлении <field name="booking_date" help="Date of booking"/>
+        для кнопок
+        <button name="action_test" string="Object Button" type="object"
+            help="A message will be printed in the log"
+            class="oe_highlight"/>
 
 
