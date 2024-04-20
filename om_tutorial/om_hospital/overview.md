@@ -95,6 +95,7 @@ https://www.youtube.com/watch?v=eqWd2zHSRio&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
             <h1></h1> - добавит размер
 
     step 9 - Statusbar, Buttons, Confirmation message on button click, help message for fields/buttons
+    06f0b5755250c3a13a49e846d5b5914ef206aca3
 https://www.youtube.com/watch?v=Z7nux4M3rrc&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=33
 https://www.youtube.com/watch?v=gxF5zpUjLxo&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=34
 https://www.youtube.com/watch?v=5ykMlMcUPis&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=35
@@ -129,4 +130,33 @@ https://www.youtube.com/watch?v=GRwwboUuzHs&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
             help="A message will be printed in the log"
             class="oe_highlight"/>
 
+    step 10  Fix Compute Method Failed To Assign Value Error, Rainbow Effect, Badge Widget And Decorations
+https://www.youtube.com/watch?v=Mz35lKuSUX0&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=37
+https://www.youtube.com/watch?v=qfUcUSyoXhg&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=38
+https://www.youtube.com/watch?v=_7w09OZmfbk&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=39
 
+    Fix Compute Method Failed To Assign Value Error - нет else(у меня в коде было - else требуется с одоо 14 и далее)
+        def _compute_age(self):
+            today = date.today()
+            for rec in self:
+                if rec.date_of_birth:
+                    rec.age = today.year - rec.date_of_birth.year - (
+                            (today.month, today.day) < (rec.date_of_birth.month, rec.date_of_birth.day))
+                else:
+                    rec.age = 0
+    Rainbow Effect - добавляем в питон:
+        return {
+            'effect': {
+                'fadeout': 'slow',
+                'message': 'Click Successfully',
+                'type': 'rainbow_man',
+            }
+        }
+    добавляем бедж в три вью:
+    сам виджет внизу, плюс цвета success - зеленый, danger - красный, info - голубой, muted - серый (без цвета)
+    <field name="state"
+           decoration-success="state == 'done'"
+           decoration-info="state == 'draft'"
+           decoration-danger="state == 'in_consultation'"
+           decoration-muted="state == 'cancel'"
+           widget='badge'/>
