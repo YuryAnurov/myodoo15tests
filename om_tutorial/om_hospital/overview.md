@@ -131,6 +131,7 @@ https://www.youtube.com/watch?v=GRwwboUuzHs&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
             class="oe_highlight"/>
 
     step 10  Fix Compute Method Failed To Assign Value Error, Rainbow Effect, Badge Widget And Decorations
+    67ee93f63e80558e18468c06406d696158ef6069
 https://www.youtube.com/watch?v=Mz35lKuSUX0&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=37
 https://www.youtube.com/watch?v=qfUcUSyoXhg&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=38
 https://www.youtube.com/watch?v=_7w09OZmfbk&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=39
@@ -160,3 +161,15 @@ https://www.youtube.com/watch?v=_7w09OZmfbk&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
            decoration-danger="state == 'in_consultation'"
            decoration-muted="state == 'cancel'"
            widget='badge'/>
+
+    step 11 How To Give Color For Tree View Records In Odoo
+
+https://www.youtube.com/watch?v=muoreBKSRCk&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=40
+
+    Меняем не виджет, а саму строчку, для этого те же стили что писали в field пишем в tree
+        <!--            <tree create="0" delete="0" -->
+            <tree
+                  decoration-success = "state == 'done'"
+                  decoration-danger="state == 'in_consultation'"
+                  decoration-muted="state == 'cancel'"
+                  decoration-info="state == 'draft'">
