@@ -3,7 +3,7 @@ from odoo import api, fields, models, _
 
 class HospitalAppointment(models.Model):
     _name = "hospital.appointment"
-    _inherit = 'mail.thread'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Hospital Appointment"
     _rec_name = 'ref'
 

@@ -44,6 +44,7 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
                     <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
                 </div>
             </form>
@@ -63,6 +64,7 @@
                 <field name="patient_id"/>
                 <field name="appointment_time"/>
                 <field name="booking_date"/>
+                <field name="activity_ids" widget="list_activity"/>
                 <field name="state"
                        decoration-success="state == 'done'"
                        decoration-info="state == 'draft'"

@@ -163,7 +163,7 @@ https://www.youtube.com/watch?v=_7w09OZmfbk&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
            widget='badge'/>
 
     step 11 How To Give Color For Tree View Records In Odoo
-
+    d441544b901b7ea8c1be113aab8f6ae1b2f63b9a
 https://www.youtube.com/watch?v=muoreBKSRCk&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=40
 
     Меняем не виджет, а саму строчку, для этого те же стили что писали в field пишем в tree
@@ -173,3 +173,21 @@ https://www.youtube.com/watch?v=muoreBKSRCk&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
                   decoration-danger="state == 'in_consultation'"
                   decoration-muted="state == 'cancel'"
                   decoration-info="state == 'draft'">
+
+    step 12 Widget List Activity
+
+https://www.youtube.com/watch?v=WNZgyRdTrP4&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=41&t=47s
+
+    под формой у одоо мейта были send message, log note и shcedule activity, а у меня не было shcedule activity
+    в модели - 
+    class HospitalAppointment(models.Model):
+        _name = "hospital.appointment"
+        # _inherit = 'mail.thread'
+        _inherit = ['mail.thread', 'mail.activity.mixin']
+    и в форме 
+    <div class="oe_chatter">
+        <field name="message_follower_ids"/>
+        <field name="activity_ids"/>  - этого не было
+        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+    </div>
+    Добавим это поле и в лист вью
