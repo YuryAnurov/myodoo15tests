@@ -175,7 +175,7 @@ https://www.youtube.com/watch?v=muoreBKSRCk&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
                   decoration-info="state == 'draft'">
 
     step 12 Widget List Activity
-
+    5549c9314a054a62cc77020b676dca1db1d48c8b
 https://www.youtube.com/watch?v=WNZgyRdTrP4&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=41&t=47s
 
     под формой у одоо мейта были send message, log note и shcedule activity, а у меня не было shcedule activity
@@ -191,3 +191,15 @@ https://www.youtube.com/watch?v=WNZgyRdTrP4&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
         <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
     </div>
     Добавим это поле и в лист вью
+
+
+    step 13 Dynamic Tree View In Odoo || Optional Field Visibility In List View
+https://www.youtube.com/watch?v=ykBgXNV_zDo&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=42
+ 
+    чтобы добавить 3 точки для выбора отображаемых полей в лист вью - нужно хотя бы одно поле отметить как optional
+    <!--                <field name="booking_date"/>-->
+                    <field name="booking_date" optional="show"/>
+    выбираемые поля должны быть с опцией либо show либо hide - добавил еще 2 поля, они скрыты по умолчанию, т.к. hide, 
+    но их можно также выбрать 
+                <field name="ref" optional="hide"/>
+                <field name="gender" optional="hide"/>
