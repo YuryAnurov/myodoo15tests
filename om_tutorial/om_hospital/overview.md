@@ -194,6 +194,7 @@ https://www.youtube.com/watch?v=WNZgyRdTrP4&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
 
 
     step 13 Dynamic Tree View In Odoo || Optional Field Visibility In List View
+    5df62973a50adbbf89a7507aacd24d5f75dd822a
 https://www.youtube.com/watch?v=ykBgXNV_zDo&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=42
  
     чтобы добавить 3 точки для выбора отображаемых полей в лист вью - нужно хотя бы одно поле отметить как optional
@@ -203,3 +204,18 @@ https://www.youtube.com/watch?v=ykBgXNV_zDo&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
     но их можно также выбрать 
                 <field name="ref" optional="hide"/>
                 <field name="gender" optional="hide"/>
+
+
+    step14 Many2one Avatar And Many2One Avatar User Widget
+
+https://www.youtube.com/watch?v=iW0VkD73ILg&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=43
+
+    в продажах можем видеть назначенного менеджера и писать ему сообщения прямо из три вью
+    добавим ассистента (у одо мейта - доктор, но доктор у меня уже был из 16 версии туториалов)
+    в модели appointments добавляем новое поле (адресуем юзерам системы):
+    assistant_id = fields.Many2one('res.users', string='Assistant')
+    в форме и три вью добавляем:
+    виджет без возможности коммуникации (в сейлс можно кликнуть на менеджера и написать ему сообщение):
+                <field name="assistant_id" widget="many2one_avatar"/>
+    виджет с возможностью коммуникации:
+                <field name="assistant_id" widget="many2one_avatar_user"/>
