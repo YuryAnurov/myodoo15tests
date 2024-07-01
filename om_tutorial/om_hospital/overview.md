@@ -207,7 +207,7 @@ https://www.youtube.com/watch?v=ykBgXNV_zDo&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
 
 
     step14 Many2one Avatar And Many2One Avatar User Widget
-
+    a88a95fd7eb4357dda34b8872254d8d51da8808f
 https://www.youtube.com/watch?v=iW0VkD73ILg&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=43
 
     в продажах можем видеть назначенного менеджера и писать ему сообщения прямо из три вью
@@ -222,8 +222,9 @@ https://www.youtube.com/watch?v=iW0VkD73ILg&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
 
 
     step15 How To Make HTML Field Collaborative
+    cda4bd904233058696d0b3373a33b68b7440d950
 https://www.youtube.com/watch?v=IL2GUBaAHMk&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=44
-
+    
     можно залоговаться под пользователем demo с паролем demo (даже не внося ничего в конфиг)
     правда сессия часто expired (буквально за минуту) - как только второй пользователь подключен к той же базе
     по умолчанию поле html - если зайти в форму appointments - edit - не collaborative, т.е. результаты изменения
@@ -236,3 +237,12 @@ https://www.youtube.com/watch?v=IL2GUBaAHMk&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPy
     Но нет - проблема все же осталось - пользователь оказывается был тот же самый и хоть и без перезагрузки страницы
     дублировалось - но смысл не в этом. Как только загрузил второго пользователя - сразу начались снова вылеты сессии
     видимо дело в этом
+
+    
+    step16 How To Enable Resizable Option For Html Field In Odoo
+https://www.youtube.com/watch?v=msh2lhCW4mM&list=PLqRRLx0cl0hoZM788LH5M8q7KhiXPyuVU&index=45
+    
+    чтобы HTML поле было в рамке изменяющегося размера, нужно в форм вью добавить вместо этого     
+    options="{'collaborative': true}"/>    
+    это
+    options="{'collaborative': true, 'resizable': true}"/>
